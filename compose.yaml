@@ -1,0 +1,25 @@
+version: '3'
+
+services:
+  notification-service:
+    build: .
+    ports:
+      - "5672:5672"
+  
+  database:
+    image: mysql
+    restart: always
+    environment:
+      MYSQL_USER: developer
+      MYSQL_PASSWORD: password
+      MYSQL_DATABASE: notification-db
+      
+  rabbit-mq:
+    image: rabbitmq:4.0-management
+    ports:
+      - "5672:5672"
+      - "15672:15672"
+    environment:
+      - RABBITMQ_DEFAULT_USER=guest
+      - RABBITMQ_DEFAULT_PASS=guest
+  
