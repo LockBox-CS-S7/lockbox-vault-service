@@ -4,8 +4,7 @@ WORKDIR /app
 
 COPY . .
 
-RUN deno compile -A --output app src/main.ts
+RUN deno install
+RUN chmod +x ./launch.sh
 
-EXPOSE 5672
-
-CMD ["./app"]
+CMD ["./launch.sh"]

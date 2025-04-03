@@ -1,13 +1,12 @@
-version: '3'
-
 services:
   notification-service:
     build: .
-    ports:
-      - "5672:5672"
+    depends_on:
+      database:
+        condition: service_healthy
   
   database:
-    image: mysql
+    image: mysql:9.2
     restart: always
     ports:
       - "3306:3306"
@@ -16,6 +15,11 @@ services:
       MYSQL_USER: developer
       MYSQL_PASSWORD: password
       MYSQL_DATABASE: notification-db
+    healthcheck:
+      test: ["CMD", "mysqladmin", "ping", "-h", "localhost", "-u", "root", "-prootpassword"]
+      interval: 10s
+      timeout: 5s
+      retries: 3
       
   rabbit-mq:
     image: rabbitmq:4.0-management

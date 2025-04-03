@@ -2,10 +2,10 @@ import amqp from 'amqplib/callback_api.js';
 import { handleIncomingMessage } from './message_handling.ts';
 
 
-const queueName = 'task-queue';
+const queueName = 'notifications-queue';
 
 if (import.meta.main) {    
-    amqp.connect('amqp://localhost', (error0, connection) => {
+    amqp.connect('amqp://rabbit-mq', (error0, connection) => {
         if (error0) {
             throw error0;
         }
