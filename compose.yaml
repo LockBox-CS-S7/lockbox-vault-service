@@ -16,7 +16,7 @@ services:
       MYSQL_RANDOM_ROOT_PASSWORD: yes
       MYSQL_USER: developer
       MYSQL_PASSWORD: password
-      MYSQL_DATABASE: notification-db
+      MYSQL_DATABASE: vault-db
     healthcheck:
       test: ["CMD", "mysqladmin", "ping", "-h", "localhost", "-u", "root", "-prootpassword"]
       interval: 10s
