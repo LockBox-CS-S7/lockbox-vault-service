@@ -5,6 +5,7 @@
     "jsr:@std/internal@^1.0.6": "1.0.6",
     "npm:@types/amqplib@~0.10.7": "0.10.7",
     "npm:@types/express@^5.0.1": "5.0.1",
+    "npm:@types/node@*": "22.12.0",
     "npm:amqplib@~0.10.7": "0.10.7",
     "npm:drizzle-kit@*": "0.30.6_esbuild@0.19.12",
     "npm:drizzle-kit@~0.30.6": "0.30.6_esbuild@0.19.12",
@@ -334,8 +335,8 @@
       "dependencies": [
         "@drizzle-team/brocli",
         "@esbuild-kit/esm-loader",
-        "esbuild@0.19.12",
         "esbuild-register",
+        "esbuild@0.19.12",
         "gel"
       ]
     },
@@ -384,15 +385,15 @@
     "esbuild@0.18.20": {
       "integrity": "sha512-ceqxoedUrcayh7Y7ZX6NdbbDzGROiyVBgC4PriJThBKSVPWnnFHZAkfI1lJT8QFkOwH4qOS2SJkS4wvpGl8BpA==",
       "dependencies": [
-        "@esbuild/android-arm@0.18.20",
         "@esbuild/android-arm64@0.18.20",
+        "@esbuild/android-arm@0.18.20",
         "@esbuild/android-x64@0.18.20",
         "@esbuild/darwin-arm64@0.18.20",
         "@esbuild/darwin-x64@0.18.20",
         "@esbuild/freebsd-arm64@0.18.20",
         "@esbuild/freebsd-x64@0.18.20",
-        "@esbuild/linux-arm@0.18.20",
         "@esbuild/linux-arm64@0.18.20",
+        "@esbuild/linux-arm@0.18.20",
         "@esbuild/linux-ia32@0.18.20",
         "@esbuild/linux-loong64@0.18.20",
         "@esbuild/linux-mips64el@0.18.20",
@@ -412,15 +413,15 @@
       "integrity": "sha512-aARqgq8roFBj054KvQr5f1sFu0D65G+miZRCuJyJ0G13Zwx7vRar5Zhn2tkQNzIXcBrNVsv/8stehpj+GAjgbg==",
       "dependencies": [
         "@esbuild/aix-ppc64",
-        "@esbuild/android-arm@0.19.12",
         "@esbuild/android-arm64@0.19.12",
+        "@esbuild/android-arm@0.19.12",
         "@esbuild/android-x64@0.19.12",
         "@esbuild/darwin-arm64@0.19.12",
         "@esbuild/darwin-x64@0.19.12",
         "@esbuild/freebsd-arm64@0.19.12",
         "@esbuild/freebsd-x64@0.19.12",
-        "@esbuild/linux-arm@0.19.12",
         "@esbuild/linux-arm64@0.19.12",
+        "@esbuild/linux-arm@0.19.12",
         "@esbuild/linux-ia32@0.19.12",
         "@esbuild/linux-loong64@0.19.12",
         "@esbuild/linux-mips64el@0.19.12",

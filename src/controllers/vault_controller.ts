@@ -2,6 +2,8 @@ import express from 'express';
 import { drizzle } from "drizzle-orm/mysql2";
 import { eq } from 'drizzle-orm';
 import { vaultTable } from '../db/schema.ts';
+import { getChannel, QUEUE_NAME } from "../amqp_conn_management.ts";
+import { Buffer } from "node:buffer";
 
 
 
@@ -13,7 +15,17 @@ vaultController.post('/', async (req, res) => {
     
     if (newVault.name && newVault.userId && newVault.passwordHash) {
         const db = drizzle(Deno.env.get('DATABASE_URL')!);
-        await db.insert(vaultTable).values(newVault);
+        const result = await db.insert(vaultTable).values(newVault);
+        
+        const channel = getChannel();
+        if (channel) {
+            const message = {
+                event: 'VAULT_CREATED',
+                data: newVault
+            };
+            channel.sendToQueue(QUEUE_NAME, Buffer.from(JSON.stringify(message)));
+        }
+        
         res.send(`Successfully created new vault: ${newVault.name}`);
     } else {
         res.send('Didn\'t receive the required information to create a vault.').status(400);
