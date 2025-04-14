@@ -1,10 +1,8 @@
-import { int, mysqlTable as table, varchar, datetime } from 'drizzle-orm/mysql-core';
+import { int, mysqlTable as table, varchar } from 'drizzle-orm/mysql-core';
 
-export const notificationTable = table('notifications_table', {
+export const vaultTable = table('vault_table', {
     id: int().primaryKey().autoincrement(),
-    title: varchar({ length: 255 }).notNull(),
-    body: varchar({ length: 255 }).notNull(),
-    urgency: varchar({ length: 255 }).notNull(),
-    timeReceived: datetime('time_received').notNull(),
+    name: varchar({ length: 255 }).notNull(),
     userId: int('user_id').notNull(),
+    passwordHash: varchar('password_hash', { length: 255 }).notNull(),
 });
