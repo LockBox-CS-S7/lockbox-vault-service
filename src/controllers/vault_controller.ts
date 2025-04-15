@@ -1,9 +1,9 @@
 import express from 'express';
-import { drizzle } from "drizzle-orm/mysql2";
+import { drizzle } from 'drizzle-orm/mysql2';
 import { eq } from 'drizzle-orm';
 import { vaultTable } from '../db/schema.ts';
-import { getChannel, QUEUE_NAME } from "../amqp_conn_management.ts";
-import { Buffer } from "node:buffer";
+import { getChannel, QUEUE_NAME } from '../amqp_conn_management.ts';
+import { Buffer } from 'node:buffer';
 
 
 
@@ -19,6 +19,7 @@ vaultController.post('/', async (req, res) => {
         const db = drizzle(Deno.env.get('DATABASE_URL')!);
         const queryRes = await db.insert(vaultTable).values(newVault);
         if (queryRes.length > 0) {
+            // Get the newly created vault's id.
             vaultId = queryRes[0].insertId;
             
             const channel = getChannel();
