@@ -8,6 +8,7 @@
     "@types/amqplib": "npm:@types/amqplib@^0.10.7",
     "@types/express": "npm:@types/express@^5.0.1",
     "amqplib": "npm:amqplib@^0.10.7",
+    "cors": "npm:cors@^2.8.5",
     "drizzle-kit": "npm:drizzle-kit@^0.30.6",
     "drizzle-orm": "npm:drizzle-orm@^0.41.0",
     "express": "npm:express@^5.1.0",
