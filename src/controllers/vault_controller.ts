@@ -51,13 +51,12 @@ vaultController.delete('/:id', async (req, res) => {
             
         
         if (queryRes.length > 0) {
-            const vaultId = queryRes[0].insertId;
             const ch = getChannel();
             if (ch) {
                 const message = {
                     event: 'VAULT_DELETED',
                     data: {
-                        id: vaultId,
+                        id: id,
                     }
                 };
                 ch.sendToQueue(QUEUE_NAME, Buffer.from(JSON.stringify(message)));
