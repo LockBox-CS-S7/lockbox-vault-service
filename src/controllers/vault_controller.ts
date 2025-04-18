@@ -4,10 +4,15 @@ import { eq } from 'drizzle-orm';
 import { vaultTable } from '../db/schema.ts';
 import { getChannel, QUEUE_NAME } from '../amqp_conn_management.ts';
 import { Buffer } from 'node:buffer';
+import { corsOptions } from '../cors_options.ts';
+import cors from 'cors';``
+
 
 
 const vaultController = express.Router();
+vaultController.use(cors(corsOptions));
 const db = drizzle(Deno.env.get('DATABASE_URL')!);
+
 
 vaultController.get('/', async (_req: express.Request, res: express.Response) => {
     const vaults = await db.select().from(vaultTable);
