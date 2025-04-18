@@ -7,7 +7,7 @@ import { initializeRabbitMQ } from "./amqp_conn_management.ts";
 const app = express();
 const port = 3000;
 const corsOptions = {
-    origin: 'http://gateway:8080/*',
+    origin: 'http://gateway:8080/',
     optionsSuccessStatus: 200
 };
 // Configure the application
@@ -22,6 +22,10 @@ try {
 } catch (_error) {
     console.log('Failed to initialize RabbitMQ');
 }
+
+app.get('/', (_req: express.Request, res: express.Response) => {
+    res.send('Welcome to LockBox vault service.');
+});
 
 app.listen(port, () => {
     console.log(`Started listening on port ${port}`);
