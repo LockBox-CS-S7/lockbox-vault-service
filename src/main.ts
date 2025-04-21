@@ -1,8 +1,8 @@
 import express from 'express';
 import cors from 'cors';
-import vaultController from "./controllers/vault_controller.ts";
-import { initializeRabbitMQ } from "./amqp_conn_management.ts";
-import { corsOptions } from "./cors_options.ts";
+import vaultController from './controllers/vault_controller.ts';
+import { initializeRabbitMQ } from './amqp_conn_management.ts';
+import { corsOptions } from './cors_options.ts';
 
 
 const app = express();
