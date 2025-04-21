@@ -5,7 +5,7 @@ import { vaultTable } from '../db/schema.ts';
 import { getChannel, QUEUE_NAME } from '../amqp_conn_management.ts';
 import { Buffer } from 'node:buffer';
 import { corsOptions } from '../cors_options.ts';
-import cors from 'cors';``
+import cors from 'cors';
 
 
 
