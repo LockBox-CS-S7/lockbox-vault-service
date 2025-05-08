@@ -73,5 +73,9 @@ vaultController.get('/user-vaults/:userId', async (req: express.Request, res: ex
     }
 });
 
+vaultController.get('/test', async (req, res) => {
+    res.send('Successfully reached the "vaults" controller.');
+});
+
 
 export default vaultController;
