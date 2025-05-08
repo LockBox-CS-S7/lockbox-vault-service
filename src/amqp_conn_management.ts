@@ -3,7 +3,7 @@ import amqp from 'amqplib/callback_api.js';
 let channel: amqp.Channel | null = null;
 export const QUEUE_NAME = 'vault-queue';
 
-export const initializeRabbitMQ = () => {
+export function initializeRabbitMQ() {
     amqp.connect('amqp://rabbit-mq', (error0, connection) => {
         if (error0) {
             throw error0;
