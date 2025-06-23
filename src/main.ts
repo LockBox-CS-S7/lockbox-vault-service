@@ -14,7 +14,8 @@ app.use(cors(corsOptions));
 app.use('/vaults', vaultController);
 
 try {
-    initializeRabbitMQ();
+    const brokerUri = Deno.env.get('RABBITMQ_URI')!;
+    initializeRabbitMQ(brokerUri);
 } catch (_error) {
     console.log('Failed to initialize RabbitMQ');
 }

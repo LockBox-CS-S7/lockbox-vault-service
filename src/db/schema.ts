@@ -5,5 +5,5 @@ export const vaultTable = table('vault_table', {
     name: varchar({ length: 255 }).notNull(),
     description: varchar({ length: 255 }),
     passwordHash: varchar('password_hash', { length: 255 }).notNull(),
-    userId: int('user_id').notNull(),
+    userId: varchar('user_id', { length: 255 }).notNull(),
 });
