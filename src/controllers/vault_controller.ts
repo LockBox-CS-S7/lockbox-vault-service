@@ -78,7 +78,7 @@ vaultController.delete('/:id', async (req: express.Request, res: express.Respons
 
 
 vaultController.get('/user-vaults/:userId', async (req: express.Request, res: express.Response) => {
-    const id = Number(req.params.userId);
+    const id = String(req.params.userId);
     
     if (id) {
         const vaults = await db.select()
